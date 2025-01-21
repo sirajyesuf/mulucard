@@ -67,7 +67,7 @@ class VcardService extends Model implements HasMedia
      */
     public static $rules = [
         'name' => 'required|string|min:2',
-        'description' => 'string|max:250',
+        'description' => 'string|max:700',
         'service_icon' => 'required|mimes:jpg,jpeg,png',
         'service_url' => 'nullable|url',
     ];
