@@ -11,12 +11,11 @@ const mix = require("laravel-mix");
  |
  */
 
-// mix.js('resources/js/app.js', 'public/js').
-//     postCss('resources/css/app.css', 'public/css', [
-//         require('postcss-import'),
-//         // require('tailwindcss'),
-//         require('autoprefixer'),
-//     ]);
+mix.js("resources/js/app.js", "public/js").postCss(
+    "resources/css/app.css",
+    "public/css",
+    [require("@tailwindcss/postcss")]
+);
 
 mix.copyDirectory(
     [
@@ -46,46 +45,61 @@ mix.copyDirectory(
 );
 mix.copyDirectory("resources/assets/img/nfc", "public/assets/img/nfc");
 
-mix.sass('resources/assets/scss/vcard1.scss', 'public/assets/css/vcard1.css').
-    sass('resources/assets/scss/vcard2.scss', 'public/assets/css/vcard2.css').
-    sass('resources/assets/scss/vcard3.scss', 'public/assets/css/vcard3.css').
-    sass('resources/assets/scss/vcard4.scss', 'public/assets/css/vcard4.css').
-    sass('resources/assets/scss/vcard5.scss', 'public/assets/css/vcard5.css').
-    sass('resources/assets/scss/vcard6.scss', 'public/assets/css/vcard6.css').
-    sass('resources/assets/scss/vcard7.scss', 'public/assets/css/vcard7.css').
-    sass('resources/assets/scss/vcard8.scss', 'public/assets/css/vcard8.css').
-    sass('resources/assets/scss/vcard9.scss', 'public/assets/css/vcard9.css').
-    sass('resources/assets/scss/vcard10.scss', 'public/assets/css/vcard10.css').
-    sass('resources/assets/scss/vcard16.scss', 'public/assets/css/vcard16.css').
-    sass('resources/assets/scss/vcard13.scss', 'public/assets/css/vcard13.css').
-    sass('resources/assets/scss/vcard14.scss', 'public/assets/css/vcard14.css').
-    sass('resources/assets/scss/vcard15.scss', 'public/assets/css/vcard15.css').
-    sass('resources/assets/scss/vcard17.scss', 'public/assets/css/vcard17.css').
-    sass('resources/assets/scss/vcard21.scss', 'public/assets/css/vcard21.css').
-    sass('resources/assets/scss/vcard22.scss', 'public/assets/css/vcard22.css').
-    sass('resources/assets/scss/vcard26.scss', 'public/assets/css/vcard26.css').
-    sass('resources/assets/scss/vcard20.scss', 'public/assets/css/vcard20.css').
-    sass('resources/assets/scss/vcard18.scss', 'public/assets/css/vcard18.css').
-    sass('resources/assets/scss/vcard19.scss', 'public/assets/css/vcard19.css').
-    sass('resources/assets/scss/vcard24.scss', 'public/assets/css/vcard24.css').
-    sass('resources/assets/scss/vcard25.scss', 'public/assets/css/vcard25.css').
-    sass('resources/assets/scss/vcard27.scss', 'public/assets/css/vcard27.css').
-    sass('resources/assets/scss/vcard28.scss', 'public/assets/css/vcard28.css').
-    sass('resources/assets/scss/vcard31.scss', 'public/assets/css/vcard31.css').
-    sass('resources/assets/scss/vcard32.scss', 'public/assets/css/vcard32.css').
-    sass('resources/assets/scss/vcard33.scss', 'public/assets/css/vcard33.css').
-    sass('resources/assets/scss/vcard30.scss', 'public/assets/css/vcard30.css').
-    sass('resources/assets/scss/vcard29.scss', 'public/assets/css/vcard29.css').
-    sass('resources/assets/scss/dynamic-vcard.scss', 'public/assets/css/dynamic-vcard.css').
-    sass('resources/assets/scss/vcard23.scss', 'public/assets/css/vcard23.css').
-    sass('resources/assets/scss/new_vcard/custom.scss', 'public/assets/css/new_vcard/custom.css').
-    sass('resources/assets/scss/new_vcard/slick.scss', 'public/assets/css/new_vcard/slick.css').
-    sass('resources/assets/scss/new_vcard/slick-theme.scss', 'public/assets/css/new_vcard/slick-theme.css').
-    sass('resources/assets/scss/blog.scss', 'public/assets/css/blog.css').
-    sass('resources/assets/scss/vcard12.scss', 'public/assets/css/vcard12.css').
-    sass('resources/assets/scss/theme.scss', 'public/assets/css/theme.css').
-    sass('resources/assets/scss/front/main.scss',
-        'public/assets/css/front/front-custom.css').version()
+mix.sass("resources/assets/scss/vcard1.scss", "public/assets/css/vcard1.css")
+    .sass("resources/assets/scss/vcard2.scss", "public/assets/css/vcard2.css")
+    .sass("resources/assets/scss/vcard3.scss", "public/assets/css/vcard3.css")
+    .sass("resources/assets/scss/vcard4.scss", "public/assets/css/vcard4.css")
+    .sass("resources/assets/scss/vcard5.scss", "public/assets/css/vcard5.css")
+    .sass("resources/assets/scss/vcard6.scss", "public/assets/css/vcard6.css")
+    .sass("resources/assets/scss/vcard7.scss", "public/assets/css/vcard7.css")
+    .sass("resources/assets/scss/vcard8.scss", "public/assets/css/vcard8.css")
+    .sass("resources/assets/scss/vcard9.scss", "public/assets/css/vcard9.css")
+    .sass("resources/assets/scss/vcard10.scss", "public/assets/css/vcard10.css")
+    .sass("resources/assets/scss/vcard16.scss", "public/assets/css/vcard16.css")
+    .sass("resources/assets/scss/vcard13.scss", "public/assets/css/vcard13.css")
+    .sass("resources/assets/scss/vcard14.scss", "public/assets/css/vcard14.css")
+    .sass("resources/assets/scss/vcard15.scss", "public/assets/css/vcard15.css")
+    .sass("resources/assets/scss/vcard17.scss", "public/assets/css/vcard17.css")
+    .sass("resources/assets/scss/vcard21.scss", "public/assets/css/vcard21.css")
+    .sass("resources/assets/scss/vcard22.scss", "public/assets/css/vcard22.css")
+    .sass("resources/assets/scss/vcard26.scss", "public/assets/css/vcard26.css")
+    .sass("resources/assets/scss/vcard20.scss", "public/assets/css/vcard20.css")
+    .sass("resources/assets/scss/vcard18.scss", "public/assets/css/vcard18.css")
+    .sass("resources/assets/scss/vcard19.scss", "public/assets/css/vcard19.css")
+    .sass("resources/assets/scss/vcard24.scss", "public/assets/css/vcard24.css")
+    .sass("resources/assets/scss/vcard25.scss", "public/assets/css/vcard25.css")
+    .sass("resources/assets/scss/vcard27.scss", "public/assets/css/vcard27.css")
+    .sass("resources/assets/scss/vcard28.scss", "public/assets/css/vcard28.css")
+    .sass("resources/assets/scss/vcard31.scss", "public/assets/css/vcard31.css")
+    .sass("resources/assets/scss/vcard32.scss", "public/assets/css/vcard32.css")
+    .sass("resources/assets/scss/vcard33.scss", "public/assets/css/vcard33.css")
+    .sass("resources/assets/scss/vcard30.scss", "public/assets/css/vcard30.css")
+    .sass("resources/assets/scss/vcard29.scss", "public/assets/css/vcard29.css")
+    .sass(
+        "resources/assets/scss/dynamic-vcard.scss",
+        "public/assets/css/dynamic-vcard.css"
+    )
+    .sass("resources/assets/scss/vcard23.scss", "public/assets/css/vcard23.css")
+    .sass(
+        "resources/assets/scss/new_vcard/custom.scss",
+        "public/assets/css/new_vcard/custom.css"
+    )
+    .sass(
+        "resources/assets/scss/new_vcard/slick.scss",
+        "public/assets/css/new_vcard/slick.css"
+    )
+    .sass(
+        "resources/assets/scss/new_vcard/slick-theme.scss",
+        "public/assets/css/new_vcard/slick-theme.css"
+    )
+    .sass("resources/assets/scss/blog.scss", "public/assets/css/blog.css")
+    .sass("resources/assets/scss/vcard12.scss", "public/assets/css/vcard12.css")
+    .sass("resources/assets/scss/theme.scss", "public/assets/css/theme.css")
+    .sass(
+        "resources/assets/scss/front/main.scss",
+        "public/assets/css/front/front-custom.css"
+    )
+    .version();
 
 mix.sass(
     "resources/assets/scss/new_home/index.scss",
@@ -101,7 +115,7 @@ mix.sass(
     )
     .sass(
         "resources/assets/scss/blogs/blogs.scss",
-        "public/assets/css/blogs/blogs.css",
+        "public/assets/css/blogs/blogs.css"
     )
     .sass(
         "resources/assets/scss/blogs/blogs1.scss",
@@ -259,7 +273,7 @@ mix.js(
         "resources/assets/js/nfc/nfc.js",
         "resources/assets/js/iframes/iframe.js",
         "resources/assets/js/storage/storage.js",
-        "resources/assets/js/addon/addon.js"
+        "resources/assets/js/addon/addon.js",
     ],
     "public/assets/js/pages.js"
 ).version();
@@ -295,7 +309,7 @@ mix.styles(
 );
 mix.sass(
     "resources/assets/css/custom-dark-mode.scss",
-    "public/assets/css/custom-pages-dark.css",
+    "public/assets/css/custom-pages-dark.css"
 ).version();
 
 // page css
