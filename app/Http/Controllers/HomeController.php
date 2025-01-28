@@ -30,26 +30,87 @@ class HomeController extends AppBaseController
      */
     public function index()
     {
-        $testimonials = FrontTestimonial::with('media')->get();
-        $faqs =  FrontFAQs::first();
-        $metas = Meta::first();
+        // $testimonials = FrontTestimonial::with('media')->get();
+        // $faqs =  FrontFAQs::first();
+        // $metas = Meta::first();
 
-        if (! empty($metas)) {
-            $metas = $metas->toArray();
-        }
+        // if (! empty($metas)) {
+        //     $metas = $metas->toArray();
+        // }
 
-        $setting = Setting::pluck('value', 'key')->toArray();
+        // $setting = Setting::pluck('value', 'key')->toArray();
 
-        $aboutUS = AboutUs::with('media')->get()->toArray();
+        // $aboutUS = AboutUs::with('media')->get()->toArray();
 
-        $features = Feature::all();
+        // $features = Feature::all();
 
-        $plans = Plan::with(['currency', 'planFeature', 'hasZeroPlan', 'planCustomFields'])->whereIsDefault(Plan::IS_DEACTIVE)->whereStatus(Plan::IS_ACTIVE)->get();
+        // $plans = Plan::with(['currency', 'planFeature', 'hasZeroPlan', 'planCustomFields'])->whereIsDefault(Plan::IS_DEACTIVE)->whereStatus(Plan::IS_ACTIVE)->get();
 
-        $homePage = getSuperAdminSettingValue('home_page_theme') == 1 ? 'home' : 'home1';
-        $view = getSuperAdminSettingValue('is_front_page') ? view("front.home.$homePage", compact('plans', 'setting', 'features', 'testimonials', 'aboutUS', 'metas', 'faqs')) : redirect(route('login'));
+        // $homePage = getSuperAdminSettingValue('home_page_theme') == 1 ? 'home' : 'home1';
+        // $view = getSuperAdminSettingValue('is_front_page') ? view("front.home.$homePage", compact('plans', 'setting', 'features', 'testimonials', 'aboutUS', 'metas', 'faqs')) : redirect(route('login'));
 
-        return $view;
+        $features = [[
+        "title" => "NFC Technology Integration",
+        "description" => "Share contact details instantly by tapping an NFC-enabled card or device on a smartphone.",
+        "icon" => "nfc",
+    ],
+    [
+        "title" => "QR Code Integration",
+        "description" => "Generate a unique QR code for your digital card that can be scanned by anyone with a smartphone.",
+        "icon" => "qr-code",
+    ],
+    [
+        "title" => "Social Media Integration",
+        "description" => "Link all your social media profiles to your digital card for a complete online presence.",
+        "icon" => "globe",
+    ],
+    [
+        "title" => "Team and Enterprise Features",
+        "description" => "Create and manage digital cards for your entire team or organization with admin controls.",
+        "icon" => "briefcase",
+    ],
+    [
+        "title" => "Offline Sharing",
+        "description" => "Allow users to save your card to their phone contacts.",
+        "icon" => "download",
+    ],
+    [
+        "title" => "Real-Time Updates",
+        "description" => "Update your job title, phone number, or address in real-time without reissuing cards.",
+        "icon" => "refresh-cw",
+    ]];
+
+    $plans = [
+        [
+            "name" => "Standard",
+            "price" => "ETB 999 / year",
+            "description" => "Ideal for individuals seeking a professional digital presence with essential features.",
+            "features" => [
+                "1 digital card",
+                "Multiple template choices",
+                "Up to 5 services",
+                "Up to 5 galleries",
+                "Personalized link",
+            ],
+        ],
+        [
+            "name" => "Premium",
+            "price" => "ETB 2000 / year",
+            "description" => "Perfect for professionals and small businesses needing advanced networking tools.",
+            "features" => [
+                "Unlimited digital cards",
+                "Multiple template choices",
+                "Advanced sharing options",
+                "Analytics dashboard",
+                "Up to 5 services",
+                "Up to 5 galleries",
+                "Personalized link",
+                "Dedicated 'Contact Us' section",
+            ],
+        ],
+    ];
+
+        return view('front.home.landingpage',compact('features','plans'));
     }
 
     public function store(CreateContactRequest $request)
