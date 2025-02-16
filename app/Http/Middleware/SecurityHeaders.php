@@ -20,11 +20,9 @@ class SecurityHeaders
         // Enforce HTTPS (HSTS)
         $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
 
-        $response->headers->set('Content-Security-Policy', "default-src 'self';
-            script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
-            style-src 'self' 'unsafe-inline' *;
-            img-src 'self' data: *;
-            font-src 'self' data: *;");
+$response->headers->set('Content-Security-Policy',
+    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' *; img-src 'self' data: *; font-src 'self' data: *;");
+
 
         // Prevent Clickjacking
         $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
