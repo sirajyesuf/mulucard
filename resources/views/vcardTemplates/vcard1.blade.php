@@ -4,8 +4,8 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    @if (checkFeature('seo'))
+   <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- @if (checkFeature('seo'))
         @if ($vcard->meta_description)
             <meta name="description" content="{{ $vcard->meta_description }}">
         @endif
@@ -22,7 +22,21 @@
         <title>{{ $vcard->home_title }} | {{ $vcard->site_title }}</title>
     @else
         <title>{{ $vcard->name }} | {{ getAppName() }}</title>
-    @endif
+    @endif -->
+   <meta property="og:title" content="{{ $vcard->name}}" />
+   <meta property="og:description" content="{{ $vcard->description }}" />
+   <meta property="og:url" content="{{env("APP_URL")}}/{{$vcard->url_alias }}" />
+   <meta property="og:image" content="{{ $vcard->profile_url }}" />
+   <meta property="og:image:width" content="1200" />
+   <meta property="og:image:height" content="630" />
+   <meta property="og:type" content="website" />
+   <meta name="twitter:card" content="summary_large_image" />
+   <meta name="twitter:title" content="{{ $vcard->name }}" />
+   <meta name="twitter:description" content="{{ $vcard->description }}" />
+   <meta name="twitter:image" content="{{ $vcard->profile_url }}" />
+
+
+
 
     <!-- PWA  -->
     <meta name="theme-color" content="#6777ef" />
