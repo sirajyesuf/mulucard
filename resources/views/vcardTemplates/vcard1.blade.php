@@ -34,7 +34,12 @@
    <meta name="twitter:title" content="{{ $vcard->name }}" />
    <meta name="twitter:description" content="{{ $vcard->description }}" />
    <meta name="twitter:image" content="{{ $vcard->profile_url }}" />
+   <meta name="twitter:url" content="{{env("APP_URL")}}/{{$vcard->url_alias }}" />
 
+   <title>{{ $vcard->name }} | {{ getAppName() }}</title>
+   <meta name="description" content="{{ $vcard->description }}">
+<meta name="keywords" content="{{ $vcard->keywords }}">
+ <meta name="article:section" content="{{ $vcard->name }}">
 
 
 
