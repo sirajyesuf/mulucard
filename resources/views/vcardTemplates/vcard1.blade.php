@@ -3,43 +3,26 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+   <meta charset="utf-8">
    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- @if (checkFeature('seo'))
-        @if ($vcard->meta_description)
-            <meta name="description" content="{{ $vcard->meta_description }}">
-        @endif
-        @if ($vcard->meta_keyword)
-            <meta name="keywords" content="{{ $vcard->meta_keyword }}">
-        @endif
-    @else
-        <meta name="description" content="{{ $vcard->description }}">
-        <meta name="keywords" content="">
-    @endif
-    <meta property="og:image" content="{{ $vcard->cover_url }}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    @if (checkFeature('seo') && $vcard->site_title && $vcard->home_title)
-        <title>{{ $vcard->home_title }} | {{ $vcard->site_title }}</title>
-    @else
-        <title>{{ $vcard->name }} | {{ getAppName() }}</title>
-    @endif -->
+
+   <title>{{ $vcard->name }} | {{ getAppName() }}</title>
+   <meta name="description" content="{{ $vcard->description }}">
+
    <meta property="og:title" content="{{ $vcard->name}}" />
-   <meta property="og:description" content="{{ $vcard->description }}" />
-   <meta property="og:url" content="{{env("APP_URL")}}/{{$vcard->url_alias }}" />
+   <meta property="og:description" content="{{ $vcard->job_title }}" />
+   <meta property="og:url" content="{{$vcard->url_alias }}" />
    <meta property="og:image" content="{{ $vcard->profile_url }}" />
    <meta property="og:image:width" content="1200" />
    <meta property="og:image:height" content="630" />
    <meta property="og:type" content="website" />
+
    <meta name="twitter:card" content="summary_large_image" />
+   <meta property="twitter:domain" content="mulucard.com">
    <meta name="twitter:title" content="{{ $vcard->name }}" />
    <meta name="twitter:description" content="{{ $vcard->description }}" />
    <meta name="twitter:image" content="{{ $vcard->profile_url }}" />
-   <meta name="twitter:url" content="{{env("APP_URL")}}/{{$vcard->url_alias }}" />
-
-   <title>{{ $vcard->name }} | {{ getAppName() }}</title>
-   <meta name="description" content="{{ $vcard->description }}">
-<meta name="keywords" content="{{ $vcard->keywords }}">
- <meta name="article:section" content="{{ $vcard->name }}">
+   <meta name="twitter:url" content="{{$vcard->url_alias }}" />
 
 
 
