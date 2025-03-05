@@ -7,7 +7,7 @@
    <meta name="csrf-token" content="{{ csrf_token() }}">
 
    <title>{{ $vcard->name }} | {{ getAppName() }}</title>
-   <meta name="description" content="{{ $vcard->description }}">
+   <meta name="description" content="{{ strip_tags( $vcard->description )}}">
 
    <meta property="og:title" content="{{ $vcard->name}}" />
    <meta property="og:description" content="{{ $vcard->job_title }}" />
@@ -20,7 +20,7 @@
    <meta name="twitter:card" content="summary_large_image" />
    <meta property="twitter:domain" content="mulucard.com">
    <meta name="twitter:title" content="{{ $vcard->name }}" />
-   <meta name="twitter:description" content="{{ $vcard->description }}" />
+   <meta name="twitter:description" content="{{ strip_tags($vcard->description )}}" />
    <meta name="twitter:image" content="{{ $vcard->profile_url }}" />
    <meta name="twitter:url" content="{{$vcard->url_alias }}" />
 

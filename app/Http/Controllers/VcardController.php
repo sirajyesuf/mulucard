@@ -154,7 +154,10 @@ class VcardController extends AppBaseController
         ])
             ->whereUrlAlias($alias)
             ->first();
-        $vcard["description"] = strip_tags($vcard->description);
+
+        // $vcard["description"] = strip_tags($vcard->description);
+
+        // dd($vcard);
 
         $vcardProducts = $vcard->products()->orderBy("id", "desc")->get();
 
