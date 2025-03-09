@@ -70,68 +70,26 @@
       </div>
     </section>
 
-        <section id="features" class="py-20 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Powerful Features</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          @foreach ($features as $feature )
-           <div class="bg-white p-6 rounded-lg shadow-md">
-
-              <x-dynamic-component :component="'lucide-' . $feature['icon']" class="w-10 h-10 text-purple-600 mb-4" />
-              <h3 class="text-xl font-semibold mb-2">{{$feature['title']}}</h3>
-              <p class="text-gray-600">{{$feature['description']}}</p>
-            </div>
-
-          @endforeach
-
-        </div>
-      </div>
-    </section>
-
-
-    <section id="pricing" class="py-20 bg-gray-50 mt-20">
+    <section id="features" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Choose Your Plan</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
-            @foreach ($plans as $index => $plan)
-                <div
-                    class="bg-white p-8 rounded-lg shadow-md {{ $index === 1 ? 'border-2 border-purple-500' : '' }}"
-                >
-                    <h3 class="text-2xl font-bold mb-2">{{ $plan['name'] }}</h3>
-                    <p class="text-gray-600 mb-4">{{ $plan['description'] }}</p>
-                    <p class="text-4xl font-bold mb-6">{{ $plan['price'] }}</p>
-                    <ul class="space-y-2 mb-8">
-                        @foreach ($plan['features'] as $feature)
-                            <li class="flex items-center">
-                                <svg
-                                    class="w-4 h-4 mr-2 text-green-500"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M5 13l4 4L19 7"
-                                    ></path>
-                                </svg>
-                                {{ $feature }}
-                            </li>
-                        @endforeach
-                    </ul>
-                    <button
-                        class="w-full py-2 px-4 rounded {{ $index === 1 ? 'bg-purple-600 text-white' : 'bg-white text-purple-600 border border-purple-600' }} hover:bg-purple-700 hover:text-white transition-colors"
-                    >
-                        {{ $index === 2 ? 'Contact Sales' : 'Get Started' }}
-                    </button>
-                </div>
-            @endforeach
+    <h2 class="text-3xl font-bold text-center mb-12">Powerful Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        @foreach ($features as $feature )
+        <div class="bg-white p-6 rounded-lg shadow-md">
+
+            <x-dynamic-component :component="'lucide-' . $feature['icon']" class="w-10 h-10 text-purple-600 mb-4" />
+
+            <h3 class="text-xl font-semibold mb-2">{{$feature['title']}}</h3>
+            <p class="text-gray-600">{{$feature['description']}}</p>
         </div>
+
+        @endforeach
+
+    </div>
     </div>
 </section>
+
 
 
     <section class="py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
@@ -213,7 +171,7 @@
             </div>
         </div>
         <div class="mt-8 border-t border-gray-700 pt-8 text-sm text-center">
-            <p>&copy; {{ date('Y') }} DigiCard. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} MuluCard. All rights reserved.</p>
         </div>
     </div>
 </footer>
@@ -221,4 +179,3 @@
 
 </body>
 </html>
-
