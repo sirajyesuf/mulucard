@@ -204,14 +204,14 @@
             <span class="aside-menu-title">{{ __('messages.vcard.appointments') }}</span>
         </a>
     </li>
-
+{{--
     <li class="nav-item {{ Request::is('admin/product-orders*') ? 'active' : '' }}">
         <a class="nav-link d-flex align-items-center py-3" aria-current="page"
             href="{{ route('product-orders.index') }}">
             <span class="aside-menu-icon pe-3"><i class="fas fa-money-bills icon-color-bs-darkyellow"></i></span>
             <span class="aside-menu-title">{{ __('messages.product_orders') }}</span>
         </a>
-    </li>
+    </li> --}}
 
     <li
         class="nav-item {{ Request::is('admin/virtual-backgrounds*') || Request::is('admin/custom-virtual-backgrounds*') ? 'active' : '' }}">
@@ -245,12 +245,12 @@
             <span class="aside-menu-title">{{ __('messages.storage') }}</span>
         </a>
     </li>
-    <li class="nav-item {{ Request::is('admin/user-setting*') ? 'active' : '' }}">
+    {{-- <li class="nav-item {{ Request::is('admin/user-setting*') ? 'active' : '' }}">
         <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('user.setting.index') }}">
             <span class="aside-menu-icon pe-3"><i class="fas fa-cog icon-color-bs-orange"></i></span>
             <span class="aside-menu-title">{{ __('messages.settings') }}</span>
         </a>
-    </li>
+    </li> --}}
 
     {{-- manage subscription fixed button --}}
     <li class="{{ Request::is('admin/manage-subscription*') ? 'active' : '' }} fixed">
