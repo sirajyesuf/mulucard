@@ -74,13 +74,13 @@
                             </a>
                         </li>
                         @role(\App\Models\Role::ROLE_ADMIN)
-                            <li>
+                            <!-- <li>
                                 <a class="dropdown-item text-gray-900" href="{{ route('subscription.index') }}">
                                     <span class="dropdown-icon me-4 text-gray-600">
                                         <i class="fa-solid fa-money-bill icon-color-bs-purple"></i>
                                     </span>
                                     {{ __('messages.subscription.manage_subscription') }}</a>
-                            </li>
+                            </li> -->
                         @endrole
                         @if((is_impersonating() === false))
                             <li>
